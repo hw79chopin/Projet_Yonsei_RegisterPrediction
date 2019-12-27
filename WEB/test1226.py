@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 from xgboost import XGBClassifier, plot_importance
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import auc, f1_score, accuracy_score
+import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
@@ -99,19 +100,20 @@ def meta():
 
     optimum_mileage = val4 + 1
     passornot = []
+
     for i in range(val4, 0, -1):
         optimum_mileage -= 1
         df_temp = df_input.copy()
         df_temp['mileage'] = df_temp['mileage'].replace(val5,i)
 
-        prediction_2 = model.predict(df_temp)
+        prediction_2 = model.predict_proba(df_temp)
         passornot.append([prediction_2, optimum_mileage])
         mileage_prop = optimum_mileage + 1
-
         if prediction_2[0] == 0:
             break
         elif prediction_2[0] == 1:
             pass
+
 
     return render_template('meta2.html', result=None, resultData=((prediction, mileage_prop),), resultUPDATE=None)
 
