@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<header>
+        <h3>I need your information</h3>
+        <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+        <style>
+                body {
+                        font-family: 'Jua', sans-serif;
+                        font-size: 15px;
+                }
+        </style>
+</header>
+<body>
+        <form action = "/meta2" method="POST">
+        <table>
+                <tr>
+                        <td>학정번호: </td>
+                        <td><input type='text' name='course_code' placeholder='예: CSI3102'></td>
+                </tr>
+                <tr>
+                        <td>담당교수: </td>
+                        <td><input type='text' name='instructor' placeholder='예: 이경우'></td>
+                </tr>
+                <tr>
+                        <td>정원: </td>
+                        <td><input type='text' name='quota' placeholder='예: 90'></td>
+                </tr>
+                <tr>
+                        <td>최대 마일리지: </td>
+                        <td><input type='text' name='max_mileage' placeholder='예: 36'></td>
+                </tr>
+                <tr>
+                        <td>전공자 정원:</td>
+                        <td><input type='text' name='major_quota' placeholder='예: 70 (없으면 -1)'></td>
+                </tr>
+                <tr>
+                        <td>복수전공자 포함:</td>
+                        <td><input type='radio' name='double_major' value='1'>YES
+                        <input type='radio' name='double_major' value='0'>NO</td>
+                </tr>
+                <tr>
+                        <td>1학년 정원:</td>
+                        <td><input type='text' name='grade_quota_1' placeholder='예: 0(없으면 -1)'></td>
+                </tr>
+                <tr>
+                        <td>2학년 정원:</td>
+                        <td><input type='text' name='grade_quota_2' placeholder='예: 30(없으면 -1)'></td>
+                </tr>
+                <tr>
+                        <td>3학년 정원:</td>
+                        <td><input type='text' name='grade_quota_3' placeholder='예: 30(없으면 -1)'></td>
+                </tr>
+                <tr>
+                        <td>4학년 정원:</td>
+                        <td><input type='text' name='grade_quota_4' placeholder='예: 30(없으면 -1)'></td>
+                </tr>
+                <tr>
+                        <td>전공자: </td>
+                        <td><input type='radio' name='major' value='1'>YES
+                        <input type='radio' name='major' value='0'>NO</td>
+                </tr>
+                <tr>
+                        <td>복수전공자:</td>
+                        <td><input type='radio' name='second_major' value='1'>YES
+                        <input type='radio' name='second_major' value='0'>NO</td>
+                </tr>
+                <tr>
+                        <td>졸업신청: </td>
+                        <td><input type='radio' name='graduation' value='1'>YES
+                        <input type='radio' name='graduation' value='0'>NO</td>
+                </tr>
+                <tr>
+                        <td>초수강여부: </td>
+                        <td><input type='radio' name='first_enroll' value='1'>YES
+                        <input type='radio' name='first_enroll' value='0'>NO</td>
+                </tr>
+                <tr>
+                        <td>학년: </td>
+                        <td><select name='grade'>
+                        <option value='1'>1학년</option>
+                        <option value='2'>2학년</option>
+                        <option value='3'>3학년</option>
+                        <option value='4'>4학년</option></select></td>
+                </tr>
+                <tr>
+                        <td>신청과목수: </td>
+                        <td><select name='enrolled_courses'>
+                        <option value='1'>1과목</option>
+                        <option value='2'>2과목</option>
+                        <option value='3'>3과목</option>
+                        <option value='4'>4과목</option>
+                        <option value='5'>5과목</option>
+                        <option value='6'>6과목이상</option></select></td>
+                </tr>
+                <tr>
+                        <td>총이수학점/졸업이수학점: </td>
+                        <td><input type='text' name='credits_rate' placeholder='예: 0.7701'></td>
+                </tr>
+                <tr>
+                        <td>직전학기이수학점/학기당수강학점: </td>
+                        <td><input type='text' name='previous_credits_rate' placeholder='예: 0.8311'></td>
+                </tr>
+                <tr>
+                        <td>마일리지: </td>
+                        <td><input type='text' name='mileage' placeholder='예: 28'></td>
+                </tr>
+        </table>
+        <input type='submit' value='확인' />
+        </form>
+</body>
+</html>
