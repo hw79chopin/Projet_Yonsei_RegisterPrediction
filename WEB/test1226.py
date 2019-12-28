@@ -49,6 +49,9 @@ def meta():
             sql = "SELECT * FROM df_pred WHERE course_code=%s AND instructor=%s"
             cursor.execute(sql, (val1, val2))
             result = cursor.fetchall()
+    except KeyError:
+        print("Check course code and instuctors name")
+
     finally:
         conn.close()
 
@@ -100,22 +103,41 @@ def meta():
 
     optimum_mileage = val4 + 1
     passornot = []
-
+    passornot_p = []
     for i in range(val4, 0, -1):
         optimum_mileage -= 1
         df_temp = df_input.copy()
         df_temp['mileage'] = df_temp['mileage'].replace(val5,i)
 
-        prediction_2 = model.predict_proba(df_temp)
+        prediction_2 = model.predict(df_temp)
         passornot.append([prediction_2, optimum_mileage])
         mileage_prop = optimum_mileage + 1
         if prediction_2[0] == 0:
             break
         elif prediction_2[0] == 1:
             pass
+        
+    optimum_mileage = val4 + 1
+    for i in range(val4, 0, -1):
+        optimum_mileage -= 1
+        df_temp = df_input.copy()
+        df_temp['mileage'] = df_temp['mileage'].replace(val5,i)
 
+        prediction_2_p = model.predict_proba(df_temp)[0][1]
+        passornot_p.append([optimum_mileage,prediction_2_p])
 
-    return render_template('meta2.html', result=None, resultData=((prediction, mileage_prop),), resultUPDATE=None)
+    plt.clf()
+    plt.style.use('ggplot')
+    plt.plot(np.array(passornot_p)[:,0],np.array(passornot_p)[:,1])#,color='gray')
+    plt.ylim((0,1))
+    plt.title('Success Probability')
+    plt.ylabel('Probability')
+    plt.hlines(0.5,xmin=0,xmax=val4,linestyles ='dashed',color ='gray')
+    plt.xlabel('Mileage')
+    #plt.show()
+    plt.savefig('tmp/plot.svg')
 
-if __name__ == '__main__':
-    app.run()
+    if prediction < 0.5 :
+        return render_template('meta3.html', result=None, resultData=((prediction, mileage_prop),), resultUPDATE=None)
+    else :
+        return render_template('meta2.html', result=None, resultData=((prediction, mileage_prop),), resultUPDATE=None)
