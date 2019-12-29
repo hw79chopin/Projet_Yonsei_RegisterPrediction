@@ -1,111 +1,206 @@
 <!DOCTYPE html>
 <html>
 <header>
-        <h3>I need your information</h3>
+        <h2 align='center' style='padding-top:2%; font-size:30px'>ì •ë³´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”</h2>
         <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
         <style>
                 body {
                         font-family: 'Jua', sans-serif;
                         font-size: 15px;
+                        background: #cedeef;
                 }
+                table {
+                        margin: 0 auto;
+                }
+		th {
+			padding: 10px;
+			text-align: left;
+			width: 200px;
+		}
+		td {
+                        padding: 10px;
+			text-align: left
+                }
+                #logo-img {
+                        width: 200px;
+                        height: 200px;
+                }
+                .inputbox {
+                        height: 23px;
+                        font-family: 'Jua', sans-serif;
+                        border-color:lightgrey;
+                }
+                .selectbox {
+                        height: 30px;
+                        width: 100px;
+                        font-family: 'Jua', sans-serif;
+                }
+                input::placeholder {
+                        color: silver;
+                        font-style: italic;
+                }
+                #home-btn {
+        	        position: fixed;
+                        top:10px;
+                        right:10px;
+                        background-color: steelblue;
+                        color: white;
+                        width: 120px;
+           		height: 25px;
+		        padding: 8px;
+		        color: white;
+	                font-family: 'Jua', sans-serif;
+	                font-size: 18px;
+	                background-color: steelblue;
+	                margin: 10px 10px 10px 10px;
+	                text-align: center
+                }
+                a:link {
+                        color: white;
+                        text-decoration: none;
+                }
+                #submit-btn {
+			margin-top: 1%;
+                        background-color: steelblue;
+                        color: white;
+                        height: 35px;
+                        width: 120px;
+                        font-family: 'Jua', sans-serif;
+                }
+	        table.first {
+                        margin: 0 auto;
+                        float: left
+                }
+
+                table.second {
+	                margin: 0 auto;
+                        float: right
+                }
+
+		#home-btn {
+                        position: fixed;
+                        top:10px;
+                        right:10px;
+                        background-color: steelblue;
+                        color: white;
+                        width: 120px;
+                        height: 25px;
+                        padding: 8px;
+                        color: white;
+                        font-family: 'Jua', sans-serif;
+                        font-size: 18px;
+                        background-color: steelblue;
+                        margin: 10px 10px 10px 10px;
+                        text-align: center
+                }
+
         </style>
 </header>
 <body>
-        <form action = "/meta2" method="POST">
+	<form action = "/meta2" method="POST">
+	<div style="display:flex; flex-direction:row; justify-content:center">
+	<div style="margin-right:50px">
         <table>
-                <tr>
-                        <td>ÇĞÁ¤¹øÈ£: </td>
-                        <td><input type='text' name='course_code' placeholder='¿¹: CSI3102'></td>
+                <tr class='first'>
+                        <th>í•™ì •ë²ˆí˜¸: </th>
+                        <td><input type='text' class='inputbox' name='course_code' placeholder='ì˜ˆ: CSI3102'></td>
                 </tr>
-                <tr>
-                        <td>´ã´ç±³¼ö: </td>
-                        <td><input type='text' name='instructor' placeholder='¿¹: ÀÌ°æ¿ì'></td>
+                <tr class='first'>
+			<th>ë‹´ë‹¹êµìˆ˜: </th>
+                        <td><input type='text' class='inputbox' name='instructor' placeholder='ì˜ˆ: ì´ê²½ìš°'></td>
                 </tr>
-                <tr>
-                        <td>Á¤¿ø: </td>
-                        <td><input type='text' name='quota' placeholder='¿¹: 90'></td>
+                <tr class='first'>
+			<th>ì •ì›: </th>
+                        <td><input type='text' class='inputbox' name='quota' placeholder='ì˜ˆ: 90'></td>
                 </tr>
-                <tr>
-                        <td>ÃÖ´ë ¸¶ÀÏ¸®Áö: </td>
-                        <td><input type='text' name='max_mileage' placeholder='¿¹: 36'></td>
+                <tr class='first'>
+			<th>ìµœëŒ€ ë§ˆì¼ë¦¬ì§€: </th>
+                        <td><input type='text' class='inputbox' name='max_mileage' placeholder='ì˜ˆ: 36'></td>
                 </tr>
-                <tr>
-                        <td>Àü°øÀÚ Á¤¿ø:</td>
-                        <td><input type='text' name='major_quota' placeholder='¿¹: 70 (¾øÀ¸¸é -1)'></td>
+                <tr class='first'>
+			<th>ì „ê³µì ì •ì›:</th>
+                        <td><input type='text' class='inputbox' name='major_quota' placeholder='ì˜ˆ: 70 (ì—†ìœ¼ë©´ -1)'></td>
                 </tr>
-                <tr>
-                        <td>º¹¼öÀü°øÀÚ Æ÷ÇÔ:</td>
+                <tr class='first'>
+                        <th>ë³µìˆ˜ì „ê³µì í¬í•¨:</th>
                         <td><input type='radio' name='double_major' value='1'>YES
                         <input type='radio' name='double_major' value='0'>NO</td>
                 </tr>
-                <tr>
-                        <td>1ÇĞ³â Á¤¿ø:</td>
-                        <td><input type='text' name='grade_quota_1' placeholder='¿¹: 0(¾øÀ¸¸é -1)'></td>
+                <tr class='first'>
+                        <th>1í•™ë…„ ì •ì›:</th>
+                        <td><input type='text' class='inputbox' name='grade_quota_1' placeholder='ì˜ˆ: 0(ì—†ìœ¼ë©´ -1)'></td>
                 </tr>
-                <tr>
-                        <td>2ÇĞ³â Á¤¿ø:</td>
-                        <td><input type='text' name='grade_quota_2' placeholder='¿¹: 30(¾øÀ¸¸é -1)'></td>
+                <tr class='first'>
+                        <th>2í•™ë…„ ì •ì›:</th>
+                        <td><input type='text' class='inputbox' name='grade_quota_2' placeholder='ì˜ˆ: 30(ì—†ìœ¼ë©´ -1)'></td>
                 </tr>
-                <tr>
-                        <td>3ÇĞ³â Á¤¿ø:</td>
-                        <td><input type='text' name='grade_quota_3' placeholder='¿¹: 30(¾øÀ¸¸é -1)'></td>
+                <tr class='first'>
+                        <th>3í•™ë…„ ì •ì›:</th>
+                        <td><input type='text' class='inputbox' name='grade_quota_3' placeholder='ì˜ˆ: 30(ì—†ìœ¼ë©´ -1)'></td>
                 </tr>
-                <tr>
-                        <td>4ÇĞ³â Á¤¿ø:</td>
-                        <td><input type='text' name='grade_quota_4' placeholder='¿¹: 30(¾øÀ¸¸é -1)'></td>
-                </tr>
-                <tr>
-                        <td>Àü°øÀÚ: </td>
+                <tr class='first'>
+                        <th>4í•™ë…„ ì •ì›:</th>
+                        <td><input type='text' class='inputbox' name='grade_quota_4' placeholder='ì˜ˆ: 30(ì—†ìœ¼ë©´ -1)'></td>
+		</tr>
+	</table>
+	</div>
+	<div style="margin-left:50">
+	<table>
+                <tr class='second'>
+                        <th>ì „ê³µì: </th>
                         <td><input type='radio' name='major' value='1'>YES
                         <input type='radio' name='major' value='0'>NO</td>
                 </tr>
-                <tr>
-                        <td>º¹¼öÀü°øÀÚ:</td>
+                <tr class='second'>
+                        <th>ë³µìˆ˜ì „ê³µì:</th>
                         <td><input type='radio' name='second_major' value='1'>YES
                         <input type='radio' name='second_major' value='0'>NO</td>
                 </tr>
-                <tr>
-                        <td>Á¹¾÷½ÅÃ»: </td>
+                <tr class='second'>
+                        <th>ì¡¸ì—…ì‹ ì²­: </th>
                         <td><input type='radio' name='graduation' value='1'>YES
                         <input type='radio' name='graduation' value='0'>NO</td>
                 </tr>
-                <tr>
-                        <td>ÃÊ¼ö°­¿©ºÎ: </td>
+                <tr class='second'>
+                        <th>ì´ˆìˆ˜ê°•ì—¬ë¶€: </th>
                         <td><input type='radio' name='first_enroll' value='1'>YES
                         <input type='radio' name='first_enroll' value='0'>NO</td>
                 </tr>
-                <tr>
-                        <td>ÇĞ³â: </td>
-                        <td><select name='grade'>
-                        <option value='1'>1ÇĞ³â</option>
-                        <option value='2'>2ÇĞ³â</option>
-                        <option value='3'>3ÇĞ³â</option>
-                        <option value='4'>4ÇĞ³â</option></select></td>
+                <tr class='second'>
+                        <th>í•™ë…„: </th>
+                        <td><select class='selectbox' name='grade'>
+                        <option value='1'>1í•™ë…„</option>
+                        <option value='2'>2í•™ë…„</option>
+                        <option value='3'>3í•™ë…„</option>
+                        <option value='4'>4í•™ë…„</option></select></td>
                 </tr>
-                <tr>
-                        <td>½ÅÃ»°ú¸ñ¼ö: </td>
-                        <td><select name='enrolled_courses'>
-                        <option value='1'>1°ú¸ñ</option>
-                        <option value='2'>2°ú¸ñ</option>
-                        <option value='3'>3°ú¸ñ</option>
-                        <option value='4'>4°ú¸ñ</option>
-                        <option value='5'>5°ú¸ñ</option>
-                        <option value='6'>6°ú¸ñÀÌ»ó</option></select></td>
+                <tr class='second'>
+                        <th>ì‹ ì²­ê³¼ëª©ìˆ˜: </th>
+                        <td><select class='selectbox' name='enrolled_courses'>
+                        <option value='1'>1ê³¼ëª©</option>
+                        <option value='2'>2ê³¼ëª©</option>
+                        <option value='3'>3ê³¼ëª©</option>
+                        <option value='4'>4ê³¼ëª©</option>
+                        <option value='5'>5ê³¼ëª©</option>
+                        <option value='6'>6ê³¼ëª©ì´ìƒ</option></select></td>
                 </tr>
-                <tr>
-                        <td>ÃÑÀÌ¼öÇĞÁ¡/Á¹¾÷ÀÌ¼öÇĞÁ¡: </td>
-                        <td><input type='text' name='credits_rate' placeholder='¿¹: 0.7701'></td>
+                <tr class='second'>
+                        <th>ì´ì´ìˆ˜í•™ì /ì¡¸ì—…ì´ìˆ˜í•™ì : </th>
+                        <td><input type='text' class='inputbox' name='credits_rate' placeholder='ì˜ˆ: 0.7701'></td>
                 </tr>
-                <tr>
-                        <td>Á÷ÀüÇĞ±âÀÌ¼öÇĞÁ¡/ÇĞ±â´ç¼ö°­ÇĞÁ¡: </td>
-                        <td><input type='text' name='previous_credits_rate' placeholder='¿¹: 0.8311'></td>
+                <tr class='second'>
+                        <th>ì§ì „í•™ê¸°ì´ìˆ˜í•™ì /í•™ê¸°ë‹¹ìˆ˜ê°•í•™ì : </th>
+                        <td><input type='text' class='inputbox' name='previous_credits_rate' placeholder='ì˜ˆ: 0.8311'></td>
                 </tr>
-                <tr>
-                        <td>¸¶ÀÏ¸®Áö: </td>
-                        <td><input type='text' name='mileage' placeholder='¿¹: 28'></td>
+                <tr class='second'>
+                        <th>ë§ˆì¼ë¦¬ì§€: </th>
+                        <td><input type='text' class='inputbox' name='mileage' placeholder='ì˜ˆ: 28'></td>
                 </tr>
-        </table>
-        <input type='submit' value='È®ÀÎ' />
+                </table>
+	</div>
+	</div>
+                <div align='center'><input type='submit' id='submit-btn' value='í™•ì¸' ></div>
+        <div class='bottom' id='home-btn'><a id="btn-home" href="../">HOME</button></div>
         </form>
 </body>
 </html>
