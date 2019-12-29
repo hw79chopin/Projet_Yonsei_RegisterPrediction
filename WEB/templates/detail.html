@@ -1,0 +1,126 @@
+<html>
+<head>
+        <h2 align='center' style='padding-top:3%;font-size:30px'>수강편람 조회 결과</h2>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+        <style>
+                body {
+                        font-family: 'Jua', sans-serif;
+                        font-size: 15px;
+                        background: #cedeef;
+                }
+                th {
+                        padding: 10px;
+                        text-align: left;
+                        border: 1px solid steelblue;
+                }
+		td {
+                        padding: 10px;
+                        text-align: left;
+                        border: 1px solid steelblue;
+				width:150;
+                }
+
+                .move-btn {
+                        width: 120px;
+                        height: 35px;
+                        padding: 4px;
+                        color: white;
+                        font-family: 'Jua', sans-serif;
+                        font-size: 18px;
+                        background-color: steelblue;
+                        margin: 5px 5px 5px 5px;
+                        text-align: center;
+                }
+                
+                table.first {
+                        margin: 0 auto;
+                        border: 1px solid steelblue;
+                        border-collapse: collapse;
+                        float: left
+                }
+                
+                table.second {
+                	margin: 0 auto;
+                        border: 1px solid steelblue;
+                        border-collapse: collapse;
+                        float: right
+                }
+
+		#home-btn {
+                        position: fixed;
+                        top:10px;
+                        right:10px;
+                        background-color: steelblue;
+                        color: white;
+                        width: 120px;
+		        height: 25px;
+		        padding: 8px;
+		        color: white;
+		        font-family: 'Jua', sans-serif;
+		        font-size: 18px;
+		        background-color: steelblue;
+		        margin: 10px 10px 10px 10px;
+		        text-align: center
+                }
+
+        </style>
+</head>
+<body>
+<div style="display:flex; flex-direction:row; justify-content:center">
+<div style="margin-right:20">
+<table>
+        <tr class = 'first'><th colspan='2'>학기</th><td>{{resultData[num][0]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>학정번호</th><td>{{resultData[num][1]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>과목명</th><td>{{resultData[num][2]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>학점</th><td>{{resultData[num][3]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>담당교수</th><td>{{resultData[num][4]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>강의시간</th><td>{{resultData[num][5]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>강의실</th><td>{{resultData[num][6]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>총 정원</th><td>{{resultData[num][7]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>참여 인원</th><td>{{resultData[num][8]}}</td></tr>
+        <tr class = 'first'><th colspan='2'>전공 정원(2전공 포함여부)</th><td>{{resultData[num][9]}}</td></tr>
+</table>
+<div>
+<form action="/detail" method="POST" style="overflow:hidden">
+        <input type="hidden" name="num" value={{num-1}}>
+        <input type="hidden" name="hyhg" value={{hyhg}}>
+        <input type="hidden" name="code" value={{code}}>
+        <input type="hidden" name="title" value={{title}}>
+        <input type="hidden" name="instructor" value={{instructor}}>
+        <input type="hidden" name="hint" value="previous">
+        <input type="submit" class='move-btn' value="Previous" style="right: 50%;bottom:13%;position:absolute">
+</form>
+</div>
+</div>
+<div style="margin-left:20">
+<table>
+        <tr class = 'second'><th rowspan=5>학년별 정원</th></tr>
+        <tr class = 'second'><th>1학년</th><td>{{resultData[num][11]}}</td></tr>
+        <tr class = 'second'><th>2학년</th><td>{{resultData[num][12]}}</td></tr>
+        <tr class = 'second'><th>3학년</th><td>{{resultData[num][13]}}</td></tr>
+        <tr class = 'second'><th>4학년</th><td>{{resultData[num][14]}}</td></tr>
+        <tr class = 'second'><th colspan='2'>교환학생 가능 여부</th><td>{{resultData[num][15]}}</td></tr>
+        <tr class = 'second'><th colspan='2'>max mileage</th><td>{{resultData[num][16]}}</td></tr>
+        <tr class = 'second'><th rowspan=4>마일리지</th></tr>
+        <tr class = 'second'><th>최소값</th><td>{{resultData[num][17]}}</td></tr>
+        <tr class = 'second'><th>최대값</th><td>{{resultData[num][18]}}</td></tr>
+        <tr class = 'second'><th>평균값</th><td>{{resultData[num][19]}}</td></tr>
+</table>
+<form action="/detail" method="POST" style="overflow:hidden">
+        <input type="hidden" name="num" value={{num+1}}>
+        <input type="hidden" name="hyhg" value={{hyhg}}>
+        <input type="hidden" name="code" value={{code}}>
+        <input type="hidden" name="title" value={{title}}>
+        <input type="hidden" name="instructor" value={{instructor}}>
+        <input type="hidden" name="hint" value="next">
+        <input type="submit" class='move-btn' value="Next" style="bottom:13%;position:absolute">
+</form>
+
+</div>
+</div>
+<br><br>
+<div class='bottom' id='home-btn'><a id="btn-home" href="../">HOME</button></div>
+</body>
+</html>
