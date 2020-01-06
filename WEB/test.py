@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 plt.switch_backend('agg')
 
-myhost='52.78.158.140'
+myhost='54.180.88.128'
 
 app = Flask(__name__)
 
