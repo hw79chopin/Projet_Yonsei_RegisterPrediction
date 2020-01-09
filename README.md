@@ -1,4 +1,4 @@
-# CRP(Crouse Register Prediction) Project
+# CRP(Course Register Prediction) Project
 ![](https://media0.giphy.com/media/Ly6FB6xRSJlW8/giphy.gif)
 
 ## 프로젝트 소개
