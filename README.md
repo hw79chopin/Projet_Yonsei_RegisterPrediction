@@ -1,6 +1,6 @@
 <h1 align="center"><strong>🔎 연세대학교 수강신청 결과 예측시스템</strong></h3>
 
-`python` `#ML` `#XGboost` `#Flask` `#HTML` `#CSS` `#AWS` `#MySQL`
+`#python` `#ML` `#XGboost` `#Flask` `#HTML` `#CSS` `#AWS` `#MySQL`
 
 # 🚦 1. 프로젝트 소개
  - 2019년 2학기에 했던 YBIGTA 컨퍼런스 주제! `<1등>`
